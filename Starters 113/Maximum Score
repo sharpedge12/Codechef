@@ -70,6 +70,29 @@ class Codechef {
         int T = fr.nextInt();
         while(T-- > 0) {
             int n = fr.nextInt();
+            ArrayList<Integer> arr = new ArrayList<>();
+            
+            for(int i =0 ; i < n ; i++){
+                arr.add(fr.nextInt());
+            }
+            
+            long score = 0 ;
+            int turn = 0 ;
+            
+            for(int i =0 ; i < arr.size()-1  && turn <= (n/2) ; i++){
+                if(i < 0){
+                    i = 0 ;
+                }
+                if(arr.get(i) != arr.get(i+1)){
+                    score++;
+                    arr.remove(i);
+                    arr.remove(i);
+                    turn++;
+                    i -= 2;
+                }
+            }
+            
+            out.println(score);
             
         out.flush();
         }
